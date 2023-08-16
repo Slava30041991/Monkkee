@@ -7,9 +7,9 @@ public abstract class BasePage {
     WebDriver driver;
     WebDriverWait wait;
     public static final String BASE_URL = "https://monkkee.com";
-    public static final String BASE_URL_LOGIN_PAGE = BASE_URL + "/app/#/";
-    public static final By SING_AP_FREE = By.xpath("//a[@class = 'btn btn-primary home__register-btn']");
-    public static final By MAIN_PAGE = By.id("create-entry");
+    String languageLocator = "//span[contains (@class, 'active')]/..//a[text() = '%s']";
+    public static final By PAGE_LANGUAGE = By.xpath("//div[contains(@class ,'uccess')]");
+    public static final By PAGE_LOCATOR = By.xpath("//a[text() = 'Homepage']");
 
     public BasePage(WebDriver driver){
         this.driver = driver;

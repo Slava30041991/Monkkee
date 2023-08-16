@@ -9,6 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import page.HomePage;
 import page.LoginPage;
+import page.MainPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,6 +17,7 @@ public class BaseTest {
     WebDriver driver;
     HomePage homePage;
     LoginPage loginPage;
+    MainPage mainPage;
 
     @Step("Setting up and opening the browser")
     @BeforeMethod
@@ -30,6 +32,7 @@ public class BaseTest {
 
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
+        mainPage = new MainPage(driver);
 }
     @Step("Exit the browser")
     @AfterMethod(alwaysRun = true)
