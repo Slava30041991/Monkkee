@@ -36,18 +36,18 @@
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />
     <orderEntry type="library" name="Maven: com.beust:jcommander:1.82" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.webjars:jquery:3.6.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: io.github.bonigarcia:webdrivermanager:5.3.3" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.github.bonigarcia:webdrivermanager:5.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.google.code.gson:gson:2.10.1" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.github.docker-java:docker-java:3.3.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.github.docker-java:docker-java-core:3.3.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.github.docker-java:docker-java-api:3.3.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.github.docker-java:docker-java:3.3.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.github.docker-java:docker-java-core:3.3.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.github.docker-java:docker-java-api:3.3.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: commons-io:commons-io:2.6" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.commons:commons-compress:1.21" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.64" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.bouncycastle:bcprov-jdk15on:1.64" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.slf4j:jcl-over-slf4j:1.7.30" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.github.docker-java:docker-java-transport-httpclient5:3.3.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: com.github.docker-java:docker-java-transport:3.3.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.github.docker-java:docker-java-transport-httpclient5:3.3.2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: com.github.docker-java:docker-java-transport:3.3.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: net.java.dev.jna:jna:5.12.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.brotli:dec:0.1.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.12.0" level="project" />

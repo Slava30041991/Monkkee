@@ -5,8 +5,6 @@
     import org.openqa.selenium.WebDriver;
     import static page.HomePage.BUTTON_LOGIN_HOME_PAGE;
 
-
-
     @Log4j2
     public class LoginPage extends BasePage{
 
