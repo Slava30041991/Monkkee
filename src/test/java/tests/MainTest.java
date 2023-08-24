@@ -11,7 +11,8 @@ public class MainTest extends BaseTest{
         loginPage.open();
         loginPage.userEnterLoginAndPassword("balahenka30041991@gmail.com", "Valy270619");
         loginPage.userClickButton();
-        mainPage.userCreateEntryClickButton();
+        mainPage.clickCreateButton();
+        mainPage.enterText("Добрый раницы");
 
         Assert.assertTrue(loginPage.isPageOpen());
     }

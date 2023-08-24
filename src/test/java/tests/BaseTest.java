@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import page.HomePage;
 import page.LoginPage;
 import page.MainPage;
+import utils.PropertyReader;
 
 import java.util.concurrent.TimeUnit;
 
@@ -22,6 +23,7 @@ public class BaseTest {
     @Step("Setting up and opening the browser")
     @BeforeMethod
     public void setUp() {
+        System.getenv().getOrDefault("MONKKEE_URL", PropertyReader.getProperty("monkkee.url"));
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");

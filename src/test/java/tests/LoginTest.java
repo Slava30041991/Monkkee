@@ -7,7 +7,9 @@ public class LoginTest extends BaseTest{
 
                 @Test(description = "Page language selection")
                 public void userChangesLanguage () {
+                    loginPage.open();
                     loginPage.languageSelection("DE");
+
                     Assert.assertTrue(loginPage.languageMessage());
                 }
                 @Test(description = "User login and password  valid data")
@@ -15,7 +17,7 @@ public class LoginTest extends BaseTest{
                     loginPage.open();
                     loginPage.userEnterLoginAndPassword("balahenka30041991@gmail.com", "Valy270619");
                     loginPage.userClickButton();
-                    Assert.assertTrue(loginPage.isPageOpen());
+                    Assert.assertTrue(mainPage.isPageOpen());
                 }
                  @Test(description = "User left the fields blank")
                  public void noValideDateUserLeftFieldsBlank (){

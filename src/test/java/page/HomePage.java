@@ -10,10 +10,12 @@ public class HomePage extends BasePage{
     public static By BUTTON_LOGIN_HOME_PAGE = By.xpath(" //a[text() = 'Login']");
     public static final By SING_AP_FREE = By.xpath("//a[@class = 'btn btn-primary home__register-btn']");
     public static final By MESSAGE_LOCATOR_REGISTRATION_TEXT = By.xpath("//h1[normalize-space(text()) = 'Registration']");
-    public static final By HEADER_TEXT_MENU_ABOUT = By.id("about");
-    String headerMenuLocator ="//a[text() = '%s']";
-    String headerTextMenu = "about";
-
+    public static final By HEADER_TEXT_MENU_ABOUT = By.xpath("//div[@id = 'about']//h2[normalize-space(text())]");
+    public static final By HEADER_TEXT_MENU_FEATURES = By.xpath("//div[@id = 'features']//h2[normalize-space(text())]");
+    public static final By HEADER_TEXT_MENU_SECURITY = By.xpath("//div[@id = 'security']//h2[normalize-space(text())]");
+    public static final By HEADER_TEXT_MENU_DONATE = By.xpath("//div[@id = 'donate']//h2[normalize-space(text())]");
+    String languageLocator = "//a[text() = '%s']";
+    String menuSelection = "//a[normalize-space(text())]/ancestor::div[@class = 'header__menu']//a[text() = '%s']";
 
 
     @Step("Open home page")
@@ -22,29 +24,37 @@ public class HomePage extends BasePage{
         log.info("Homepage open");
         return this;
     }
-    @Step("button test")
-    public String buttonTestSingUP() {
-        driver.get(BASE_URL);
-        log.info("Homepage open");
+    @Step("Button click")
+    public void buttonClickSingUP() {
         driver.findElement(SING_AP_FREE).click();
         log.info("Click button " + SING_AP_FREE);
+    }
+    @Step("Text registration")
+    public String getTextMessageRegistration(){
+
         return driver.findElement(MESSAGE_LOCATOR_REGISTRATION_TEXT).getText();
     }
-        public void choiceLanguageClick(String language){
+    public void choiceLanguageClick(String language){
             driver.findElement(By.xpath(String.format(languageLocator, language))).click();
-
-        }
-    public void clickHeaderMenu (String menuHeader) {
-        driver.findElement(By.xpath(String.format(headerMenuLocator, menuHeader))).click();
     }
 
-
-    public String textHomeRubric(String text){
-        return driver.findElement(By.id(String.valueOf(headerTextMenu))).getText();
-
-
+    public void clickHeaderMenu (String menuName) {
+    driver.findElement(By.xpath(String.format(menuSelection,menuName))).click();
     }
 
+    public String getTextHomeRubricAbout(){
+       return driver.findElement(HEADER_TEXT_MENU_ABOUT).getText();
+
+    }
+    public String getTextHomeRubricDonate() {
+        return driver.findElement(HEADER_TEXT_MENU_DONATE).getText();
+    }
+    public String getTextHomeRubricFeatures() {
+        return driver.findElement(HEADER_TEXT_MENU_FEATURES).getText();
+    }
+    public String getTextHomeRubricSecurity() {
+        return driver.findElement(HEADER_TEXT_MENU_SECURITY).getText();
+    }
 
     public HomePage(WebDriver driver) {
         super(driver);

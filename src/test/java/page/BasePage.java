@@ -4,7 +4,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class BasePage {
-    WebDriver driver;
+    static WebDriver driver;
     WebDriverWait wait;
     public static final String BASE_URL = "https://monkkee.com";
     String languageLocator = "//span[contains (@class, 'active')]/..//a[text() = '%s']";
@@ -16,9 +16,11 @@ public abstract class BasePage {
         wait =new WebDriverWait(driver,20);
 
     }
+
+
     public abstract boolean isPageOpen();
 
-    public boolean isExist(By locator){
+    public static boolean isExist(By locator){
         try
         {return driver.findElement(locator).isDisplayed();
         }catch (NoSuchElementException e){

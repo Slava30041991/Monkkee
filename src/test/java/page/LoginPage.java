@@ -3,11 +3,9 @@
     import lombok.extern.log4j.Log4j2;
     import org.openqa.selenium.By;
     import org.openqa.selenium.WebDriver;
-    import static page.HomePage.BUTTON_LOGIN_HOME_PAGE;
 
     @Log4j2
     public class LoginPage extends BasePage{
-
     public static final By INPUT_USER_FIELD = By.id("login");
     public static final By INPUT_PASSWORD_FIELD = By.id("password");
     public static final By LOGIN_BUTTON_LOGIN_PAGE = By.xpath("//button//div");
@@ -16,16 +14,12 @@
 
         @Step("The user opens login page")
         public LoginPage open(){
-            driver.get(BASE_URL);
+            driver.get(BASE_URL + "/app/#/");
             log.info("Opens login page");
-            driver.findElement(BUTTON_LOGIN_HOME_PAGE).click();
-            log.info("Click button login");
             return this;
         }
         @Step ("The user selects and changes the language")
         public LoginPage languageSelection(String language){
-            driver.get(BASE_URL + "/app/#/");
-            log.info("Go to the basic authorization page");
             driver.findElement(By.xpath(String.format(languageLocator, language))).click();
             log.info("Select page language" + language);
             return this;
@@ -56,10 +50,10 @@
             return this;
         }
         @Step("The user clicks the login button")
-        public LoginPage userClickButton(){
+        public boolean userClickButton(){
             driver.findElement(LOGIN_BUTTON_LOGIN_PAGE).click();
             log.info("Click button login");
-            return this;
+          return this.isPageOpen();
         }
         public LoginPage(WebDriver driver) {
                 super(driver);

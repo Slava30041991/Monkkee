@@ -12,11 +12,14 @@ public class MainPage extends BasePage{
 
 
     @Step("Click button create entry")
-    public MainPage userCreateEntryClickButton(){
-        driver.findElement(BUTTON_CREATE_ENTRY).click();
+    public void clickCreateButton() {
         log.info("Click " + BUTTON_CREATE_ENTRY);
-        driver.findElement(REDACTORY).sendKeys("bttvvvvvvvvvvvvvvvvvvvvvvvvvvdggggggggg");
-        return this;
+        driver.findElement(BUTTON_CREATE_ENTRY).click();
+}
+    @Step("Enter text")
+    public void enterText(String text) {
+        log.info("User " + text);
+        driver.findElement(REDACTORY).sendKeys(text);
     }
 
     public MainPage(WebDriver driver) {
