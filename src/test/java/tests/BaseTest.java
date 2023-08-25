@@ -14,7 +14,10 @@ import utils.PropertyReader;
 
 import java.util.concurrent.TimeUnit;
 
+
 public class BaseTest {
+    String email, password;
+
     WebDriver driver;
     HomePage homePage;
     LoginPage loginPage;
@@ -24,6 +27,8 @@ public class BaseTest {
     @BeforeMethod
     public void setUp() {
         System.getenv().getOrDefault("MONKKEE_URL", PropertyReader.getProperty("monkkee.url"));
+        email = System.getenv().getOrDefault("MONKKEE_EMAIL", PropertyReader.getProperty("monkkee.email"));
+        password = System.getenv().getOrDefault("MONKKEE_PASSWORD", PropertyReader.getProperty("monkkee.password"));
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");

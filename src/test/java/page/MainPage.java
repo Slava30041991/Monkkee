@@ -1,5 +1,6 @@
 package page;
 
+import elements.TextEditor;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
@@ -8,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class MainPage extends BasePage{
 
     public static final By BUTTON_CREATE_ENTRY = By.id("create-entry");
-    public static final By REDACTORY = By.id("editable");
+    public static final By REDACTORY = By.xpath("//p/ancestor::div[@id = 'editable']/p");
 
 
     @Step("Click button create entry")
@@ -21,6 +22,14 @@ public class MainPage extends BasePage{
         log.info("User " + text);
         driver.findElement(REDACTORY).sendKeys(text);
     }
+
+    public MainPage interSaveText(){
+        new TextEditor(driver).clickButtonSave();
+        return this;
+
+
+    }
+
 
     public MainPage(WebDriver driver) {
         super(driver);

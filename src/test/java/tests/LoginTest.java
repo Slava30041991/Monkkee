@@ -1,8 +1,10 @@
 package tests;
+import lombok.extern.log4j.Log4j2;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
+@Log4j2
 public class LoginTest extends BaseTest{
 
                 @Test(description = "Page language selection")
@@ -48,7 +50,7 @@ public class LoginTest extends BaseTest{
                 @Test(description = "User made a mistake in the name field")
                 public void noValideDateUserEnteredNameWithError (){
                     loginPage.open();
-                    loginPage.userEnterLoginAndPassword("balahenka3004199@gmail.com","Valy270619");
+                    loginPage.userEnterLoginAndPassword(email,password);
                     loginPage.userClickButton();
 
                     assertEquals(loginPage.errorMessageTwo(), "Login failed");
@@ -62,4 +64,5 @@ public class LoginTest extends BaseTest{
 
             assertEquals(loginPage.errorMessageTwo(), "Login failed");
         }
-            }
+
+}
