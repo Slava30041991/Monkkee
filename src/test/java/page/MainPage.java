@@ -15,8 +15,8 @@ public class MainPage extends BasePage{
     public static final By BUTTON_CREATE_ENTRY = By.id("create-entry");
     public static final By BUTTON_ICON_HOME = By.id("back-to-overview");
     public static final By TEXT_MESSAGE_ENTER_USER = By.id("back-to-overview");
+    public static By BUTTON_DELETE = By.id("delete-entries");
 
-    String searchRecordsDate = "Wed, 30 Aug. 2023 09:13 PM";
 
 
     @Step("Click button create entry")
@@ -35,11 +35,13 @@ public class MainPage extends BasePage{
         driver.findElement(TEXT_MESSAGE_ENTER_USER).getText();
     return text;
     }
-    public void selectCheckBox(){
-        new CheckBox(driver,searchRecordsDate).selectCheckBox();
+    public void selectCheckBox(String text){
+        new CheckBox(driver,text).selectCheckBox();
     }
+    public void clickButtonDelete() {
+        driver.findElement(BUTTON_DELETE).click();
 
-
+    }
     public MainPage(WebDriver driver) {
         super(driver);
     }

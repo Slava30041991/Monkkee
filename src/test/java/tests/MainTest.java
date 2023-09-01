@@ -9,6 +9,8 @@ import static org.testng.Assert.assertEquals;
 public class MainTest extends BaseTest{
  String enteredText = "Привет мой друг";
  String homeTextNotebook = "Привет мой друг";
+ String searchRecordsDate = "Wed, 30 Aug. 2023 07:18 PM";
+
     @Test
     public void CreateEntry(){
         loginPage.open()
@@ -27,7 +29,8 @@ public class MainTest extends BaseTest{
         loginPage.open()
                 .enterLoginAndPassword(email,password)
                 .userClickButton();
-        mainPage.selectCheckBox();
+        mainPage.selectCheckBox(searchRecordsDate);
+        mainPage.clickButtonDelete();
 
 
 
