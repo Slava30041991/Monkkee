@@ -8,7 +8,9 @@ public abstract class BasePage {
     WebDriverWait wait;
     public static final String BASE_URL = "https://monkkee.com";
     String languageLocator = "//span[contains (@class, 'active')]/..//a[text() = '%s']";
-    public static final By PAGE_LANGUAGE = By.xpath("//div[contains(@class ,'uccess')]");
+    public static final By DE_LANGUAGE_TEXT = By.xpath("//div[contains(text() ,'Sprache temporär geändert.')]");
+    public static final By FR_LANGUAGE_TEXT = By.xpath("//div[contains(text() ,'Langue temporairement changée. ')]");
+    public static final By PT_LANGUAGE_TEXT = By.xpath("//div[contains(text() ,'Idioma alterado temporariamente.')]");
     public static final By PAGE_LOCATOR = By.xpath("//a[text() = 'Homepage']");
 
     public BasePage(WebDriver driver){

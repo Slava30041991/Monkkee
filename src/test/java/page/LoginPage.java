@@ -12,6 +12,7 @@
     public static By ERROR_MANDATORY_FIELD_MESSAGE = By.xpath("//div[normalize-space(text()) = 'Mandatory field']");
     public static By ERROR_LOGIN = By.xpath("//div[normalize-space(text()) = 'Login failed']");
 
+
         @Step("The user opens login page")
         public LoginPage open(){
             driver.get(BASE_URL + "/app/#/");
@@ -25,24 +26,35 @@
             return this;
         }
         @Step("Language change message")
-        public boolean languageMessage(){
-            driver.findElement(PAGE_LANGUAGE).getText();
+        public String languageMessageDe(){
             log.info("language change message");
-            return true;
+            return driver.findElement(DE_LANGUAGE_TEXT).getText();
         }
+
+        @Step("Language change message")
+        public String languageMessageFr(){
+            log.info("language change message");
+            return driver.findElement(FR_LANGUAGE_TEXT).getText();
+        }
+        @Step("Language change message")
+        public String languageMessagePt(){
+            log.info("language change message");
+            return driver.findElement(PT_LANGUAGE_TEXT).getText();
+        }
+
         @Step("First error message")
-        public String errorMessageOne(){
+        public String errorMessageField(){
             log.info("First error message");
             return driver.findElement(ERROR_MANDATORY_FIELD_MESSAGE).getText();
         }
         @Step("Second error message")
-        public String errorMessageTwo() {
+        public String errorMessageLogin() {
             log.info("Second error message");
             return driver.findElement(ERROR_LOGIN).getText();
         }
 
         @Step("User enters username and password")
-        public LoginPage userEnterLoginAndPassword (String user, String password) {
+        public LoginPage enterLoginAndPassword (String user, String password) {
             driver.findElement(INPUT_USER_FIELD).sendKeys(user);
             log.info("Enters username");
             driver.findElement(INPUT_PASSWORD_FIELD).sendKeys(password);

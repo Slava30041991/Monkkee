@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 
 @Log4j2
 public class HomePage extends BasePage{
-    public static By BUTTON_LOGIN_HOME_PAGE = By.xpath(" //a[text() = 'Login']");
     public static final By SING_AP_FREE = By.xpath("//a[@class = 'btn btn-primary home__register-btn']");
     public static final By MESSAGE_LOCATOR_REGISTRATION_TEXT = By.xpath("//h1[normalize-space(text()) = 'Registration']");
     public static final By HEADER_TEXT_MENU_ABOUT = By.xpath("//div[@id = 'about']//h2[normalize-space(text())]");
