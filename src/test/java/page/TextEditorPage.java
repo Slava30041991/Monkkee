@@ -9,7 +9,9 @@ import org.openqa.selenium.WebDriver;
 public class TextEditorPage extends BasePage {
 
     String buttonSave = ("//span[@class = 'cke_button_icon']");
+    //todo
     String buttonSpecialCharacter = ("//a[@id = 'cke_637']"); //Smile,time stamp,horizontal line
+
     public static final By REDACTOR = By.xpath("//p/ancestor::div[@id = 'editable']/p");
 
     @Step("Enter text")

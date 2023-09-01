@@ -8,18 +8,23 @@
         <parameter name="browser" value="chrome"/>
 
         <classes>
-            <class name="tests.LoginTest" />
+            <class name="tests.MainTest" />
 
         </classes>
     </test> <!-- Test -->
 
 
-    <test name="Запуск в ЭДЖЕ">
-        <parameter name="browser" value="edje"/>
+    <test name="Запуск в edge">
+    <parameter name="browser" value="edge"/>
 
-        <classes>
-            <class name="tests.LoginTest" />
-        </classes>
-    </test> <!-- Test -->
+    <classes>
+        <class name="tests.HomeTest" />
+
+    </classes>
+</test> <!-- Test -->
+
+
+
+
 </suite>
 

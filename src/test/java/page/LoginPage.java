@@ -62,10 +62,10 @@
             return this;
         }
         @Step("The user clicks the login button")
-        public boolean userClickButton(){
+        public void userClickButton(){
             driver.findElement(LOGIN_BUTTON_LOGIN_PAGE).click();
             log.info("Click button login");
-          return this.isPageOpen();
+            this.isPageOpen();
         }
         public LoginPage(WebDriver driver) {
                 super(driver);

@@ -3,9 +3,7 @@ package page;
 import elements.CheckBox;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 
 import static org.testng.Assert.assertEquals;
 
@@ -15,7 +13,8 @@ public class MainPage extends BasePage{
     public static final By BUTTON_CREATE_ENTRY = By.id("create-entry");
     public static final By BUTTON_ICON_HOME = By.id("back-to-overview");
     public static final By TEXT_MESSAGE_ENTER_USER = By.id("back-to-overview");
-    public static By BUTTON_DELETE = By.id("delete-entries");
+
+
 
 
 
@@ -38,10 +37,7 @@ public class MainPage extends BasePage{
     public void selectCheckBox(String text){
         new CheckBox(driver,text).selectCheckBox();
     }
-    public void clickButtonDelete() {
-        driver.findElement(BUTTON_DELETE).click();
 
-    }
     public MainPage(WebDriver driver) {
         super(driver);
     }

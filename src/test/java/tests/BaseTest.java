@@ -10,10 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-import page.HomePage;
-import page.LoginPage;
-import page.MainPage;
-import page.TextEditorPage;
+import page.*;
 import utils.PropertyReader;
 import java.util.concurrent.TimeUnit;
 
@@ -25,6 +22,7 @@ public class BaseTest {
     LoginPage loginPage;
     MainPage mainPage;
     TextEditorPage textEditorPage;
+    ContextMenuPage contextMenuPage;
     @Parameters({"browser"})
     @BeforeMethod
 
@@ -48,7 +46,6 @@ public class BaseTest {
 
         }
 
-        System.getenv().getOrDefault("MONKKEE_URL", PropertyReader.getProperty("monkkee.url"));
         email = System.getenv().getOrDefault("MONKKEE_EMAIL", PropertyReader.getProperty("monkkee.email"));
         password = System.getenv().getOrDefault("MONKKEE_PASSWORD", PropertyReader.getProperty("monkkee.password"));
 
@@ -56,6 +53,7 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         mainPage = new MainPage(driver);
         textEditorPage = new TextEditorPage(driver);
+        contextMenuPage = new ContextMenuPage(driver);
 }
     @Step("Exit the browser")
     @AfterMethod(alwaysRun = true)

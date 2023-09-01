@@ -3,6 +3,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.PropertyReader;
+
 public abstract class BasePage {
     static WebDriver driver;
     WebDriverWait wait;
@@ -16,8 +18,10 @@ public abstract class BasePage {
     public BasePage(WebDriver driver){
         this.driver = driver;
         wait =new WebDriverWait(driver,20);
+        System.getenv().getOrDefault("MONKKEE_URL", PropertyReader.getProperty("monkkee.url"));
 
     }
+
 
 
     public abstract boolean isPageOpen();
