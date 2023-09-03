@@ -1,6 +1,8 @@
 package page;
 
+import elements.Calendar;
 import elements.CheckBox;
+import elements.Input;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.*;
@@ -13,9 +15,6 @@ public class MainPage extends BasePage{
     public static final By BUTTON_CREATE_ENTRY = By.id("create-entry");
     public static final By BUTTON_ICON_HOME = By.id("back-to-overview");
     public static final By TEXT_MESSAGE_ENTER_USER = By.id("back-to-overview");
-
-
-
 
 
     @Step("Click button create entry")
@@ -36,6 +35,12 @@ public class MainPage extends BasePage{
     }
     public void selectCheckBox(String text){
         new CheckBox(driver,text).selectCheckBox();
+    }
+    public void searchInput(String text){
+        new Input(driver).searchInput(text);
+    }
+    public void selectDate(String monthYear,String day){
+        new Calendar(driver).selectDate(monthYear, day);
     }
 
     public MainPage(WebDriver driver) {
