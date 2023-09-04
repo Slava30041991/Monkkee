@@ -12,8 +12,10 @@ public class MainTest extends BaseTest {
     String searchRecordsDate = "Sun, 3 Sep. 2023 08:19 PM";
     String monthYear = "September 2023";
     String day = "3";
+    String messageCalendar = "Entries on";
+    String textTags = "3 сентября";
 
-    @Test
+    @Test(description = "User create entry")
     public void createEntry() {
         loginPage.open()
                 .enterLoginAndPassword(email, password)
@@ -27,7 +29,7 @@ public class MainTest extends BaseTest {
         assertEquals(enteredText, homeTextNotebook, "Текс не совподает");
     }
 
-    @Test
+    @Test (description = "User check and remove checkbox")
     public void selectAndDeleteCheckBox() {
         loginPage.open()
                 .enterLoginAndPassword(email, password)
@@ -40,26 +42,35 @@ public class MainTest extends BaseTest {
         contextMenuPage.alertAccept();
 
     }
-    @Test
+    @Test(description = "User searches for text by text")
     public void searchTextByText() {
         loginPage.open()
                 .enterLoginAndPassword(email, password)
                 .userClickButton();
         mainPage.searchInput(homeTextNotebook);
 
-        assertEquals(homeTextNotebook, enteredText, "Текс не совподает");
-
+        assertEquals(homeTextNotebook, enteredText, "Text does not match");
     }
 
-    @Test
+    @Test(description = "User searches text for calendar")
     public void searchTextByDate() {
         loginPage.open()
                 .enterLoginAndPassword(email, password)
                 .userClickButton();
         mainPage.selectDate(monthYear,day);
-//todo
-        assertEquals();
 
+       assertEquals(mainPage.getMessageCalendar("Entries on"),messageCalendar,"Text does not match");
+
+    }
+    @Test
+    public void createTagInPost(){
+        loginPage.open()
+                .enterLoginAndPassword(email, password)
+                .userClickButton();
+        mainPage.clickCreateButton();
+        textEditorPage.enterText(enteredText)
+                .clickButtonSave();
+        mainPage.createTagPost(textTags);
 
     }
 }

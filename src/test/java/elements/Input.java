@@ -14,11 +14,6 @@ public class Input {
         driver.findElement(SEARCH_INPUT).sendKeys(text,Keys.ENTER);
 
     }
-
-
-
-
-
     public Input(WebDriver driver) {
         this.driver = driver;
 

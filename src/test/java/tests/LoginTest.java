@@ -15,21 +15,21 @@ public class LoginTest extends BaseTest{
         loginPage.open()
                  .languageSelection("DE");
 
-        assertEquals(loginPage.languageMessageDe(),textDe);
+        assertEquals(loginPage.languageMessageDe(),textDe,"Text does not match");
     }
     @Test(description = "Page language FR selection")
     public void changeLanguageFr () {
         loginPage.open()
                  .languageSelection("FR");
 
-        assertEquals(loginPage.languageMessageFr(),textFr);
+        assertEquals(loginPage.languageMessageFr(),textFr,"Text does not match");
     }
     @Test(description = "Page language PT selection")
     public void changeLanguagePt () {
         loginPage.open()
                  .languageSelection("PT");
 
-        assertEquals(loginPage.languageMessagePt(),textPT);
+        assertEquals(loginPage.languageMessagePt(),textPT,"Text does not match");
     }
     @Test(description = "User login and password  valid data")
     public void inputValidDateUserAndPassword () {
@@ -37,7 +37,7 @@ public class LoginTest extends BaseTest{
                  .enterLoginAndPassword(email, password)
                  .userClickButton();
 
-        Assert.assertTrue(mainPage.isPageOpen());
+        Assert.assertTrue(mainPage.isPageOpen(),"Text does not match");
     }
     @Test(description = "User left the fields blank")
     public void noValideDateUserLeftFieldsBlank (){
@@ -45,7 +45,7 @@ public class LoginTest extends BaseTest{
                  .enterLoginAndPassword("","")
                  .userClickButton();
 
-        assertEquals(loginPage.errorMessageField(), "Mandatory field");
+        assertEquals(loginPage.errorMessageField(), "Mandatory field","Text does not match");
 
     }
     @Test(description = "User left field name empty")
@@ -54,7 +54,7 @@ public class LoginTest extends BaseTest{
                  .enterLoginAndPassword("", "Valy27061")
                  .userClickButton();
 
-        assertEquals(loginPage.errorMessageField(), "Mandatory field");
+        assertEquals(loginPage.errorMessageField(), "Mandatory field","Text does not match");
     }
     @Test(description = "User left field password empty")
     public void noValideDateUserEnteredOnlyName () {
@@ -62,7 +62,7 @@ public class LoginTest extends BaseTest{
                  .enterLoginAndPassword("balahenka30041991@gmail.com", "")
                  .userClickButton();
 
-        assertEquals(loginPage.errorMessageField(), "Mandatory field");
+        assertEquals(loginPage.errorMessageField(), "Mandatory field","Text does not match");
     }
     @Test(description = "User made a mistake in the name field")
     public void noValideDateUserEnteredNameWithError (){
@@ -70,7 +70,7 @@ public class LoginTest extends BaseTest{
                  .enterLoginAndPassword("balahenka30041991@gmail.",password)
                  .userClickButton();
 
-        assertEquals(loginPage.errorMessageLogin(), "Login failed");
+        assertEquals(loginPage.errorMessageLogin(), "Login failed","Text does not match");
     }
 
     @Test(description = "User made a mistake in the password field")
@@ -79,6 +79,6 @@ public class LoginTest extends BaseTest{
                  .enterLoginAndPassword(email,"Valy2706331")
                  .userClickButton();
 
-        assertEquals(loginPage.errorMessageLogin(), "Login failed");
+        assertEquals(loginPage.errorMessageLogin(), "Login failed","Text does not match");
         }
 }
