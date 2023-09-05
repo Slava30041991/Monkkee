@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-public class Input {
+public class InputSearch {
 
     WebDriver driver;
 
@@ -14,7 +14,7 @@ public class Input {
         driver.findElement(SEARCH_INPUT).sendKeys(text,Keys.ENTER);
 
     }
-    public Input(WebDriver driver) {
+    public InputSearch(WebDriver driver) {
         this.driver = driver;
 
     }

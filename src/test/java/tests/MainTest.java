@@ -13,7 +13,7 @@ public class MainTest extends BaseTest {
     String monthYear = "September 2023";
     String day = "3";
     String messageCalendar = "Entries on";
-    String textTags = "3 сентября";
+    String textTags = "122";
 
     @Test(description = "User create entry")
     public void createEntry() {
@@ -40,8 +40,8 @@ public class MainTest extends BaseTest {
         String alertText = contextMenuPage.getText();
         assertEquals(alertText, "Do you really want to delete the selected entries?", "Текст сообщения не верный");
         contextMenuPage.alertAccept();
-
     }
+
     @Test(description = "User searches for text by text")
     public void searchTextByText() {
         loginPage.open()
@@ -60,9 +60,9 @@ public class MainTest extends BaseTest {
         mainPage.selectDate(monthYear,day);
 
        assertEquals(mainPage.getMessageCalendar("Entries on"),messageCalendar,"Text does not match");
-
     }
-    @Test
+
+    @Test(description = "adding a tag to a post")
     public void createTagInPost(){
         loginPage.open()
                 .enterLoginAndPassword(email, password)
@@ -71,6 +71,18 @@ public class MainTest extends BaseTest {
         textEditorPage.enterText(enteredText)
                 .clickButtonSave();
         mainPage.createTagPost(textTags);
+        mainPage.clickButtonHome();
 
+       assertEquals(mainPage.getMessageTags("3 сентября"),textTags,"Text does not match");
     }
+    @Test(description = "adding a tag to a post")
+    public void deleteTag(){
+        loginPage.open()
+                .enterLoginAndPassword(email, password)
+                .userClickButton();
+        mainPage.clickButtonTextTag();
+        mainPage.selectingTagNameDelete(textTags);
+        System.out.println();
+    }
+
 }

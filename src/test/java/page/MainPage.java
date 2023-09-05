@@ -2,7 +2,7 @@ package page;
 
 import elements.Calendar;
 import elements.CheckBox;
-import elements.Input;
+import elements.InputSearch;
 import elements.InputTags;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
@@ -16,6 +16,8 @@ public class MainPage extends BasePage{
     public static final By BUTTON_CREATE_ENTRY = By.id("create-entry");
     public static final By BUTTON_ICON_HOME = By.id("back-to-overview");
     public static final By TEXT_MESSAGE_ENTER_USER = By.id("back-to-overview");
+    public static final By TEXT_BUTTON_TAGS = By.xpath("//a[text() = 'Manage tags']");
+
 
 
     @Step("Click button create entry")
@@ -41,7 +43,7 @@ public class MainPage extends BasePage{
     }
     @Step("Search input")
     public void searchInput(String text){
-        new Input(driver).searchInput(text);
+        new InputSearch(driver).searchInput(text);
         log.info("search records by text");
     }
     @Step("Select date calendar")
@@ -55,8 +57,20 @@ public class MainPage extends BasePage{
         log.info("Message that the record was found by date");
         return text;
     }
+
     public void createTagPost(String text){
         new InputTags(driver,text).searchTags(text);
+    }
+
+    public String  getMessageTags(String text){
+        new InputTags(driver,text).getMessageTags(text);
+        return text;
+    }
+    public void clickButtonTextTag(){
+        driver.findElement(TEXT_BUTTON_TAGS).click();
+    }
+    public void selectingTagNameDelete(String text){
+        new InputTags(driver,text).selectRemoveTag(text);
     }
 
 
