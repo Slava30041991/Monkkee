@@ -14,7 +14,6 @@ import page.*;
 import utils.PropertyReader;
 import java.util.concurrent.TimeUnit;
 
-
 public class BaseTest {
     String email, password;
     WebDriver driver;
@@ -23,6 +22,7 @@ public class BaseTest {
     MainPage mainPage;
     TextEditorPage textEditorPage;
     ContextMenuPage contextMenuPage;
+    SettingsPage settingsPage;
     @Parameters({"browser"})
     @BeforeMethod
 
@@ -54,6 +54,7 @@ public class BaseTest {
         mainPage = new MainPage(driver);
         textEditorPage = new TextEditorPage(driver);
         contextMenuPage = new ContextMenuPage(driver);
+        settingsPage = new SettingsPage(driver);
 }
     @Step("Exit the browser")
     @AfterMethod(alwaysRun = true)

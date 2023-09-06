@@ -1,5 +1,6 @@
 package tests;
 
+import elements.InputTags;
 import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
 
@@ -13,7 +14,7 @@ public class MainTest extends BaseTest {
     String monthYear = "September 2023";
     String day = "3";
     String messageCalendar = "Entries on";
-    String textTags = "122";
+    String textTags = "How to handle Alerts in chrome 64 using selenium Java";
 
     @Test(description = "User create entry")
     public void createEntry() {
@@ -62,7 +63,7 @@ public class MainTest extends BaseTest {
        assertEquals(mainPage.getMessageCalendar("Entries on"),messageCalendar,"Text does not match");
     }
 
-    @Test(description = "adding a tag to a post")
+    @Test(description = "Adding a tag to a post")
     public void createTagInPost(){
         loginPage.open()
                 .enterLoginAndPassword(email, password)
@@ -73,16 +74,24 @@ public class MainTest extends BaseTest {
         mainPage.createTagPost(textTags);
         mainPage.clickButtonHome();
 
-       assertEquals(mainPage.getMessageTags("3 сентября"),textTags,"Text does not match");
+       assertEquals(mainPage.getMessageTags("How to handle Alerts in chrome 64 using selenium Java"),textTags,"Text does not match");
     }
-    @Test(description = "adding a tag to a post")
+
+    @Test(description = "Delete tag by name")
     public void deleteTag(){
         loginPage.open()
                 .enterLoginAndPassword(email, password)
                 .userClickButton();
         mainPage.clickButtonTextTag();
-        mainPage.selectingTagNameDelete(textTags);
-        System.out.println();
-    }
+        mainPage.selectingTagName(textTags);
+        contextMenuPage.clickButtonTeg();
+        contextMenuPage.getText();
 
+        String alertText = contextMenuPage.getText();
+        assertEquals(alertText, "Do you really want to delete the tag? All entries related to the tag remain unchanged.", "Текст сообщения не верный");
+        contextMenuPage.alertAccept();
+
+
+
+    }
 }

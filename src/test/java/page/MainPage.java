@@ -59,18 +59,18 @@ public class MainPage extends BasePage{
     }
 
     public void createTagPost(String text){
-        new InputTags(driver,text).searchTags(text);
+        new InputTags(driver).searchTags(text);
     }
 
     public String  getMessageTags(String text){
-        new InputTags(driver,text).getMessageTags(text);
+        new InputTags(driver).getMessageTags(text);
         return text;
     }
     public void clickButtonTextTag(){
         driver.findElement(TEXT_BUTTON_TAGS).click();
     }
-    public void selectingTagNameDelete(String text){
-        new InputTags(driver,text).selectRemoveTag(text);
+    public void selectingTagName(String text){
+        new InputTags(driver).selectTagText(text);
     }
 
 

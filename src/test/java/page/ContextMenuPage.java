@@ -6,10 +6,14 @@ import org.openqa.selenium.WebDriver;
 
 public class ContextMenuPage extends BasePage {
     public static By BUTTON_DELETE = By.id("delete-entries");
+    public static By BUTTON_DELETE_TEG = By.xpath("//a[@ng-click = 'deleteTag(tag)']") ;
 
 
     public void clickButtonDelete() {
         driver.findElement(BUTTON_DELETE).click();
+    }
+    public void clickButtonTeg(){
+        driver.findElement(BUTTON_DELETE_TEG).click();
     }
 
     public String getText(){
@@ -27,6 +31,6 @@ public class ContextMenuPage extends BasePage {
     }
     @Override
     public boolean isPageOpen() {
-        return false;
+        return isExist(PAGE_LOCATOR) ;
     }
 }
