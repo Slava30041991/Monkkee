@@ -17,6 +17,7 @@ public class HomePage extends BasePage{
     String menuSelection = "//a[normalize-space(text())]/ancestor::div[@class = 'header__menu']//a[text() = '%s']";
 
 
+
     @Step("Open home page")
     public HomePage open() {
         driver.get(BASE_URL);

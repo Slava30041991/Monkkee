@@ -23,6 +23,7 @@ public class BaseTest {
     TextEditorPage textEditorPage;
     ContextMenuPage contextMenuPage;
     SettingsPage settingsPage;
+    DownloaderPage downloaderPage;
     @Parameters({"browser"})
     @BeforeMethod
 
@@ -55,6 +56,7 @@ public class BaseTest {
         textEditorPage = new TextEditorPage(driver);
         contextMenuPage = new ContextMenuPage(driver);
         settingsPage = new SettingsPage(driver);
+        downloaderPage = new DownloaderPage(driver);
 }
     @Step("Exit the browser")
     @AfterMethod(alwaysRun = true)

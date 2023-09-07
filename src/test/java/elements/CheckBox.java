@@ -7,7 +7,6 @@ public class CheckBox {
 
     WebDriver driver;
     String value;
-
     String checkBoxLocator = "//div[normalize-space(text()) = '%s']/ancestor::div[@class = 'checkbox-datetime-wrapper']/div/input";
 
     public void selectCheckBox(){

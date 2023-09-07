@@ -15,6 +15,7 @@
         <selenium.version>3.141.59</selenium.version>
         <testing.version>7.7.1</testing.version>
         <bonigarcia.version>5.4.1</bonigarcia.version>
+
     </properties>
 
     <dependencies>

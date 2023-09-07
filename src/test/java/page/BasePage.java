@@ -14,7 +14,6 @@ public abstract class BasePage {
     public static final By FR_LANGUAGE_TEXT = By.xpath("//div[contains(text() ,'Langue temporairement changée. ')]");
     public static final By PT_LANGUAGE_TEXT = By.xpath("//div[contains(text() ,'Idioma alterado temporariamente.')]");
     public static final By PAGE_LOCATOR = By.xpath("//a[text() = 'Homepage']");
-
     public BasePage(WebDriver driver){
         this.driver = driver;
         wait =new WebDriverWait(driver,20);
