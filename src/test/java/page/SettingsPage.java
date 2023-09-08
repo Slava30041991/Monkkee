@@ -1,7 +1,6 @@
 package page;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.List;
@@ -64,6 +63,7 @@ public class SettingsPage extends BasePage {
         public void clickNickname(){
             driver.findElement(NICKNAME_INPUT).click();
         }
+
         public void selectNickName(String text){
             driver.findElement(NICKNAME_SELECT).sendKeys(text);
         }

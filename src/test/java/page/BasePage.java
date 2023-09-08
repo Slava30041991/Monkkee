@@ -8,6 +8,7 @@ import utils.PropertyReader;
 public abstract class BasePage {
     static WebDriver driver;
     WebDriverWait wait;
+
     public static final String BASE_URL = "https://monkkee.com";
     String languageLocator = "//span[contains (@class, 'active')]/..//a[text() = '%s']";
     public static final By DE_LANGUAGE_TEXT = By.xpath("//div[contains(text() ,'Sprache temporär geändert.')]");

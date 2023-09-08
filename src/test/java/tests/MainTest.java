@@ -24,8 +24,8 @@ public class MainTest extends BaseTest {
         mainPage.clickCreateButton();
         textEditorPage.enterText(enteredText)
                 .clickButtonSave();
-        mainPage.clickButtonHome();
-        mainPage.textMessageRecords(homeTextNotebook);
+        mainPage.clickButtonHome()
+                .textMessageRecords(homeTextNotebook);
 
         assertEquals(enteredText, homeTextNotebook, "Текс не совподает");
     }

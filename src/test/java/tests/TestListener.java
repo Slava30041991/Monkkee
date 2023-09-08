@@ -27,6 +27,7 @@ public class TestListener implements ITestListener {
     }
 
     @Override
+
     public void onTestSkipped(ITestResult result) {
         System.out.printf("Test skipped: %s \n", result.getName());
     }
