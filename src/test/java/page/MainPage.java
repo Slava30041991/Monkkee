@@ -15,8 +15,7 @@ public class MainPage extends BasePage{
     public static final By BUTTON_ICON_HOME = By.id("back-to-overview");
     public static final By TEXT_MESSAGE_ENTER_USER = By.id("back-to-overview");
     public static final By TEXT_BUTTON_TAGS = By.xpath("//a[text() = 'Manage tags']");
-
-
+    public static final By MESSAGE_SEARCH = By.xpath("//span[@class ='ng-binding search-parameter']");
 
     @Step("Click button create entry")
     public MainPage clickCreateButton() {
@@ -25,7 +24,7 @@ public class MainPage extends BasePage{
         return this;
     }
     @Step("Click button icon home")
-    public MainPage clickButtonHome(){
+    public MainPage clickButtonHome() {
         driver.findElement(BUTTON_ICON_HOME).click();
         log.info("Click " + BUTTON_ICON_HOME);
         return this;
@@ -37,10 +36,9 @@ public class MainPage extends BasePage{
         return this.toString();
     }
     @Step("Select check box")
-    public MainPage selectCheckBox(String text){
-        new CheckBox(driver,text).selectCheckBox();
+    public void selectCheckBox(){
+        new CheckBox(driver).selectCheckBox();
         log.info("Select check box");
-        return this;
     }
     @Step("Search input")
     public MainPage searchInput(String text){
@@ -48,26 +46,33 @@ public class MainPage extends BasePage{
         log.info("search records by text");
         return this;
     }
+    public String messageSearch(){
+       return new InputSearch(driver).messageSearch();
+
+    }
+
     @Step("Select date calendar")
-    public MainPage selectDate(String monthYear, String day){
+    public MainPage selectDate(String monthYear, String day) throws InterruptedException {
         new Calendar(driver).selectDate(monthYear, day);
         log.info("Search entries by date");
         return this;
     }
     @Step("Message search date")
-    public String getMessageCalendar(String text){
-       new Calendar(driver).getMessageEntries();
+    public String getMessageCalendar(){
+      String date =  new Calendar(driver).getMessageEntries();
         log.info("Message that the record was found by date");
-        return this.toString();
+        return date;
+
     }
 
     public void createTagPost(String text){
         new InputTags(driver).searchTags(text);
     }
 
-    public String  getMessageTags(String text){
-        new InputTags(driver).getMessageTags(text);
-        return this.toString();
+    public String getMessageTags(){
+     String text = new InputTags(driver).getMessageTags();
+     return text;
+
     }
     public void clickButtonTextTag(){
         driver.findElement(TEXT_BUTTON_TAGS).click();

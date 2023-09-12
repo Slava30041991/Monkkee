@@ -3,16 +3,16 @@ package page;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class ContextMenuPage extends BasePage {
-    WebDriverWait wait;
     public static By BUTTON_DELETE = By.id("delete-entries");
     public static By BUTTON_DELETE_TEG = By.xpath("//a[@ng-click = 'deleteTag(tag)']") ;
 
 
-    public void clickButtonDelete() {
+    public ContextMenuPage clickButtonDelete() {
         driver.findElement(BUTTON_DELETE).click();
+        return this;
     }
     public void clickButtonTeg(){
         driver.findElement(BUTTON_DELETE_TEG).click();

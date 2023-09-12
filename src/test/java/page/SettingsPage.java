@@ -19,11 +19,14 @@ public class SettingsPage extends BasePage {
     public static By MESSAGE_TEXT_TIME = By.xpath("//div[normalize-space(text()) = 'Suas configurações foram salvas com sucesso']");
 
 
-        public void logout(){
+        public SettingsPage logout(){
             driver.findElement(LOGOUT_BUTTON);
+            return this;
         }
-        public void clickSettingButton(){
+
+        public SettingsPage clickSettingButton(){
              driver.findElement(BUTTON_SETTINGS).click();
+            return this;
         }
         public void selectSettingLanguage () {
             List<WebElement> settings = driver.findElements(LIST_SETTINGS);
@@ -68,7 +71,6 @@ public class SettingsPage extends BasePage {
             driver.findElement(NICKNAME_SELECT).sendKeys(text);
         }
 
-
         public void clickButtonTime(){
             driver.findElement(LIMIT_TIME_BUTTON).click();
         }
@@ -79,11 +81,11 @@ public class SettingsPage extends BasePage {
         }
         public void clickButtonOkTime () {
         driver.findElement(BUTTON_OK).click();
-    }
+        }
         public String getMessageTextTime(String text){
             driver.findElement(MESSAGE_TEXT_TIME).getText();
             return text;
-    }
+        }
 
         public SettingsPage(WebDriver driver) {
             super(driver);

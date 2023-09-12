@@ -32,6 +32,7 @@ public class SettingsTest extends BaseTest {
 
         assertTrue(homePage.isPageOpen());
     }
+
         @Test(description = "Adding a login alias instead of email")
                 public void addingAlies(){
             loginPage.open()

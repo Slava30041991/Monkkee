@@ -1,13 +1,13 @@
 package tests;
 
-import org.openqa.selenium.By;
+
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-import static org.testng.Assert.assertEquals;
 
 public class DownloaderTest extends BaseTest{
+    String fileLocator = "";
 
     @Test(description = "Download document")
     public void downloadDocumentFormat() throws IOException, InterruptedException {
@@ -17,7 +17,9 @@ public class DownloaderTest extends BaseTest{
         settingsPage.clickSettingButton();
         settingsPage.selectSettingExport();
         downloaderPage.selectFileDownload();
-        downloaderPage.fileClickRadiobutton(".PDF");
+        downloaderPage.clickDownloadOk();
+        downloader("//div[@class = 'col-sm-4 col-sm-offset-3']/ancestor::div[@class = 'content-container clearfix ng-scope']//button","r");
+
 
     }
 

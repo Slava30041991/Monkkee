@@ -19,34 +19,13 @@
             log.info("Opens login page");
             return this;
         }
-        @Step ("The user selects and changes the language")
-        public LoginPage languageSelection(String language){
-            driver.findElement(By.xpath(String.format(languageLocator, language))).click();
-            log.info("Select page language" + language);
-            return this;
-        }
-        @Step("Language change message")
-        public String languageMessageDe(){
-            log.info("language change message");
-            return driver.findElement(DE_LANGUAGE_TEXT).getText();
-        }
-
-        @Step("Language change message")
-        public String languageMessageFr(){
-            log.info("language change message");
-            return driver.findElement(FR_LANGUAGE_TEXT).getText();
-        }
-        @Step("Language change message")
-        public String languageMessagePt(){
-            log.info("language change message");
-            return driver.findElement(PT_LANGUAGE_TEXT).getText();
-        }
 
         @Step("First error message")
         public String errorMessageField(){
             log.info("First error message");
             return driver.findElement(ERROR_MANDATORY_FIELD_MESSAGE).getText();
         }
+
         @Step("Second error message")
         public String errorMessageLogin() {
             log.info("Second error message");

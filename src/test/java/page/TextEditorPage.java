@@ -5,6 +5,8 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.util.List;
@@ -15,8 +17,8 @@ public class TextEditorPage extends BasePage {
     public static By BUTTON_SAVE = By.xpath("//span[@class = 'cke_button_icon']");
     public static By TOOL_GROUP_BUTTON= By.xpath("//span[@class ='cke_toolgroup']/ancestor::span[@id = 'cke_30']//a");
     public static final By REDACTOR = By.xpath("//p/ancestor::div[@id = 'editable']/p");
-    public static final By SELECT_FILE_BUTTON = By.xpath("//input[@class = 'cke_dialog_ui_input_text']");
-    public static final By UPLOAD_BUTTON_OK = By.xpath("//a[@title = 'OK']");
+    public static final By SELECT_FILE_BUTTON = By.xpath("//input[@name= 'txtUpload']");
+    public static final By UPLOAD_BUTTON_OK = By.xpath("//span[@class = 'cke_dialog_ui_button']");
 
 
     @Step("Enter text")
@@ -27,28 +29,34 @@ public class TextEditorPage extends BasePage {
 
     }
     @Step("Click button save")
-    public TextEditorPage clickButtonSave (){
+    public void clickButtonSave (){
         driver.findElement(BUTTON_SAVE).click();
         log.info("Click" + BUTTON_SAVE);
-        return this;
     }
 
     @Step("Click button emage")
     public TextEditorPage buttonBlockEmage(){
-        List<WebElement> elements = driver.findElements(TOOL_GROUP_BUTTON);
-        elements.get(2).click();
+        List<WebElement> button = driver.findElements(TOOL_GROUP_BUTTON);
+        button.get(2).click();
         log.info("Select button block");
         return this;
     }
     @Step("Select file loading  ")
-    public TextEditorPage selectFileLoading (){
+    public TextEditorPage selectFileLoading () throws InterruptedException {
+        Thread.sleep(600);
+        WebElement element = driver.findElement(By.xpath("//iframe[@title = 'Upload']"));
+        driver.switchTo().frame(element);
         File file = new File("src/test/resources/SQL-SELECT.png");
         driver.findElement(SELECT_FILE_BUTTON).sendKeys(file.getAbsolutePath());
         log.info("Uploading a picture");
-        driver.findElement(UPLOAD_BUTTON_OK).click();
+        driver.switchTo().defaultContent();
+        Thread.sleep(600);
+        List<WebElement> elements = driver.findElements(UPLOAD_BUTTON_OK);
+        elements.get(0).click();
         log.info("Click button ok");
         return this;
     }
+
 
     public TextEditorPage(WebDriver driver) {
         super(driver);

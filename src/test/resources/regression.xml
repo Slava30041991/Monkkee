@@ -8,7 +8,7 @@
         <parameter name="browser" value="chrome"/>
 
         <classes>
-            <class name="tests.MainTest" />
+            <class name="tests.HomeTest" />
 
         </classes>
     </test> <!-- Test -->
@@ -22,6 +22,7 @@
 
     </classes>
 </test> <!-- Test -->
+
 
 
 

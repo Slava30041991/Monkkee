@@ -11,9 +11,7 @@ public abstract class BasePage {
 
     public static final String BASE_URL = "https://monkkee.com";
     String languageLocator = "//span[contains (@class, 'active')]/..//a[text() = '%s']";
-    public static final By DE_LANGUAGE_TEXT = By.xpath("//div[contains(text() ,'Sprache temporär geändert.')]");
-    public static final By FR_LANGUAGE_TEXT = By.xpath("//div[contains(text() ,'Langue temporairement changée. ')]");
-    public static final By PT_LANGUAGE_TEXT = By.xpath("//div[contains(text() ,'Idioma alterado temporariamente.')]");
+    public static final By LANGUAGE_TEXT = By.xpath("//div[@class = 'alert alert-success']");
     public static final By PAGE_LOCATOR = By.xpath("//a[text() = 'Homepage']");
     public BasePage(WebDriver driver){
         this.driver = driver;
@@ -22,7 +20,7 @@ public abstract class BasePage {
 
     }
 
-
+    //div[@class = 'alert alert-success']
 
     public abstract boolean isPageOpen();
 

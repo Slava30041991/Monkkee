@@ -1,13 +1,10 @@
 package tests;
 
 import org.testng.annotations.Test;
-
-
-
 public class TextEditorTest extends BaseTest{
 
     @Test(description = "Loading File ")
-    public void loadingFileFormat()  {
+    public void loadingFileFormat() throws InterruptedException {
         loginPage.open()
                 .enterLoginAndPassword(email, password)
                 .userClickButton();
@@ -17,7 +14,4 @@ public class TextEditorTest extends BaseTest{
                 .clickButtonSave();
 
 
-
-}
-
-}
+}}
