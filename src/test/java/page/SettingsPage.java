@@ -20,7 +20,8 @@ public class SettingsPage extends BasePage {
     public static By NICKNAME_SELECT = By.xpath("//div//input[@id = 'alias']");
     public static By LIMIT_TIME_LIST = By.xpath("//option[@value]/ancestor::select[@name = 'autoLogout']/..//option[@value]");
     public static By LIMIT_TIME_BUTTON = By.xpath("//select[@name = 'autoLogout']");
-    public static By MESSAGE_TEXT_TIME = By.xpath("//div[normalize-space(text()) = 'Suas configurações foram salvas com sucesso']");
+    public static By MESSAGE_TEXT_ALIES_TIME = By.xpath("//div[@class = 'alert alert-success']");
+    public static final By BUTTON_HOME_SETTING = By.xpath("//i[@class = 'icon-home icon-white']");
 
         @Step("Logout")
         public SettingsPage logout(){
@@ -37,17 +38,19 @@ public class SettingsPage extends BasePage {
         }
 
         @Step("Click setting language")
-        public void selectSettingLanguage () {
+        public void selectSettingLanguage () throws InterruptedException {
+            Thread.sleep(600);
             List<WebElement> settings = driver.findElements(LIST_SETTINGS);
             log.info("Click setting language");
             settings.get(0).click();
         }
 
         @Step("Click setting alies")
-        public void selectSettingAlies () {
+        public SettingsPage selectSettingAlies () {
             List<WebElement> settings = driver.findElements(LIST_SETTINGS);
             log.info("Click setting alies");
             settings.get(3).click();
+            return this;
         }
 
         @Step("Click setting timeout")
@@ -61,7 +64,7 @@ public class SettingsPage extends BasePage {
         public SettingsPage selectLanguage () {
             List<WebElement> language = driver.findElements(LIST_LANGUAGE);
             log.info("Select and click button language");
-            language.get(3).click();
+            language.get(1).click();
             return this;
         }
 
@@ -106,10 +109,10 @@ public class SettingsPage extends BasePage {
         }
 
         @Step("Select nickname")
-        public SettingsPage selectNickName(String text){
+        public String selectNickName(String text) {
             driver.findElement(NICKNAME_SELECT).sendKeys(text);
             log.info("Select nickname " + text);
-            return this;
+            return text;
         }
 
         @Step("Click button time")
@@ -128,17 +131,25 @@ public class SettingsPage extends BasePage {
         }
 
         @Step("Click button time")
-        public void clickButtonOkTime () {
+        public SettingsPage clickButtonOkTime () {
         driver.findElement(BUTTON_OK).click();
         log.info("Click button time");
+        return this;
+        }
+    @Step("Text message time and alias")
+    public String getMessageTextAliasAndTime(String text) {
+        driver.findElement(MESSAGE_TEXT_ALIES_TIME).getText();
+        log.info("Text message time and alias " + text);
+        return text;
+    }
 
-        }
-        @Step("Text message time")
-        public String getMessageTextTime(String text){
-            driver.findElement(MESSAGE_TEXT_TIME).getText();
-            log.info("Text message time " + text);
-            return text;
-        }
+    @Step("Click button home Settings")
+    public SettingsPage clickButtonSettingsHome () throws InterruptedException {
+        Thread.sleep(500);
+        driver.findElement(BUTTON_HOME_SETTING).click();
+        log.info("Click button home Settings ");
+        return this;
+    }
 
         public SettingsPage(WebDriver driver) {
             super(driver);

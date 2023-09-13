@@ -1,7 +1,6 @@
 package tests;
 import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
-
 import static org.testng.Assert.assertEquals;
 @Log4j2
 public class MainTest extends BaseTest {
@@ -12,12 +11,14 @@ public class MainTest extends BaseTest {
     String messageCalendar = "13 Sep. 2023";
     String textTags = "How to handle Alerts in chrome 64 using selenium Java";
 
+
     @Test(description = "Create entry")
-    public void createEntry()  {
+    public void createEntry() throws InterruptedException {
         loginPage.open()
                 .enterLoginAndPassword(email, password)
                 .userClickButton();
         mainPage.clickCreateButton();
+
         textEditorPage.enterText(enteredText)
                 .clickButtonSave();
         mainPage.clickButtonHome()
@@ -32,7 +33,7 @@ public class MainTest extends BaseTest {
     }
 
     @Test (description = "Language selection settings")
-    public void selectAndDeleteCheckBox() {
+    public void selectAndDeleteCheckBox() throws InterruptedException {
         loginPage.open()
                 .enterLoginAndPassword(email, password)
                 .userClickButton();
@@ -48,11 +49,10 @@ public class MainTest extends BaseTest {
         assertEquals(alertText, "Do you really want to delete the selected entries?", "Текст сообщения не верный");
         contextMenuPage.alertAccept();
 
-
     }
 
     @Test(description = "Search for text by text")
-    public void searchTextByText()  {
+    public void searchTextByText() throws InterruptedException {
         loginPage.open()
                 .enterLoginAndPassword(email, password)
                 .userClickButton();
@@ -91,7 +91,7 @@ public class MainTest extends BaseTest {
     }
 
     @Test(description = "Adding a tag to a post")
-    public void createTagInPost() {
+    public void createTagInPost() throws InterruptedException {
         loginPage.open()
                     .enterLoginAndPassword(email, password)
                     .userClickButton();
@@ -110,7 +110,7 @@ public class MainTest extends BaseTest {
     }
 
     @Test(description = "Delete tag by name")
-    public void deleteTag(){
+    public void deleteTag() throws InterruptedException {
         loginPage.open()
                         .languagePageLogin()
                         .enterLoginAndPassword(email, password)
@@ -130,4 +130,5 @@ public class MainTest extends BaseTest {
         contextMenuPage.alertAccept();
 
     }
+
 }

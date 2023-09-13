@@ -4,10 +4,10 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 public class SettingsTest extends BaseTest {
     String textLanguage = "Seu idioma foi alterado com sucesso";
-    String textTime = "Suas configurações foram salvas com sucesso";
+    String textTimeAndAlies = "Your settings have been saved successfully";
 
     @Test(description = "Language selection settings")
-    public void languageSelectionSettings(){
+    public void languageSelectionSettings() throws InterruptedException {
         loginPage.open()
                 .enterLoginAndPassword(email, password)
                 .userClickButton();
@@ -31,18 +31,19 @@ public class SettingsTest extends BaseTest {
     }
 
         @Test(description = "Adding a login alias instead of email")
-                public void addingAlies(){
+                public void addingAlies()  {
             loginPage.open()
                         .enterLoginAndPassword(email, password)
                         .userClickButton();
            settingsPage.clickSettingButton()
-                        .selectSettingAlies();
-           settingsPage.nicknameClickCheckBox()
+                        .selectSettingAlies()
+                        .nicknameClickCheckBox()
                         .clickNickname()
-                        .selectNickName("Home")
-                        .clickButtonOkTime();
+                        .nicknameClickCheckBox();
+           settingsPage.selectNickName("Home");
+           settingsPage.clickButtonOkTime();
 
-            assertEquals(settingsPage.getMessageTextTime("Suas configurações foram salvas com sucesso"),textTime,"Text does not match");
+        assertEquals(settingsPage.getMessageTextAliasAndTime("Your settings have been saved successfully"),textTimeAndAlies,"Text does not match");
 
         }
 
@@ -57,7 +58,7 @@ public class SettingsTest extends BaseTest {
                         .listTimeLimit()
                         .clickButtonOkTime();
 
-            assertEquals(settingsPage.getMessageTextTime("Suas configurações foram salvas com sucesso"),textTime,"Text does not match");
+            assertEquals(settingsPage.getMessageTextAliasAndTime("Your settings have been saved successfully"),textTimeAndAlies,"Text does not match");
 
         }
 

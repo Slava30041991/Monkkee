@@ -56,6 +56,7 @@ public class BaseTest {
 
 
             options.addArguments("--start-maximized");
+            //options.addArguments("--headless");
             driver = new ChromeDriver(options);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 

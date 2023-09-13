@@ -16,6 +16,7 @@ public class TextEditorPage extends BasePage {
     public static final By UPLOAD_BUTTON_OK = By.xpath("//span[@class = 'cke_dialog_ui_button']");
 
 
+
     @Step("Enter text")
     public TextEditorPage enterText(String text) {
         driver.findElement(REDACTOR).sendKeys(text);
@@ -24,7 +25,8 @@ public class TextEditorPage extends BasePage {
 
     }
     @Step("Click button save")
-    public void clickButtonSave (){
+    public void clickButtonSave () throws InterruptedException {
+        Thread.sleep(600);
         driver.findElement(BUTTON_SAVE).click();
         log.info("Click button save");
     }
@@ -38,7 +40,7 @@ public class TextEditorPage extends BasePage {
     }
     @Step("Select file loading ")
     public TextEditorPage selectFileLoading () throws InterruptedException {
-        Thread.sleep(600);
+        Thread.sleep(400);
         WebElement element = driver.findElement(By.xpath("//iframe[@title = 'Upload']"));
         driver.switchTo().frame(element);
         File file = new File("src/test/resources/SQL-SELECT.png");

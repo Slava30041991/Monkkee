@@ -17,7 +17,8 @@ public class MainPage extends BasePage{
     public static final By TEXT_BUTTON_TAGS = By.xpath("//a[text() = 'Manage tags']");
 
     @Step("Click button create entry")
-    public MainPage clickCreateButton() {
+    public MainPage clickCreateButton() throws InterruptedException {
+        Thread.sleep(100);
         driver.findElement(BUTTON_CREATE_ENTRY).click();
         log.info("Click button entry");
         return this;

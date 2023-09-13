@@ -9,11 +9,22 @@ public class TextEditorTest extends BaseTest {
         loginPage.open()
                 .enterLoginAndPassword(email, password)
                 .userClickButton();
+        settingsPage.clickSettingButton()
+                .selectSettingLanguage();
+        settingsPage.selectLanguage()
+                .clickButtonOkLanguage();
+        settingsPage.clickButtonSettingsHome();
         mainPage.clickCreateButton();
         textEditorPage.buttonBlockEmage()
                 .selectFileLoading()
                 .clickButtonSave();
 
         assertTrue(homePage.isPageOpen());
+
+        mainPage.clickButtonHome();
+        mainPage.selectCheckBox();
+        contextMenuPage.clickButtonDelete()
+                .getText();
+        contextMenuPage.alertAccept();
 
 }}

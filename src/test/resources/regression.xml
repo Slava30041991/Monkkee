@@ -4,7 +4,7 @@
 
 
 
-    <test name="Запуск в хроме">
+    <test name="Запуск в хроме тест 1">
         <parameter name="browser" value="chrome"/>
 
         <classes>
@@ -14,11 +14,57 @@
     </test> <!-- Test -->
 
 
+    <test name="Запуск в хроме тест 2">
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+            <class name="tests.LanguagTest" />
+
+        </classes>
+    </test> <!-- Test -->
+
+
+    <test name="Запуск в хроме тест 3">
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+            <class name="tests.LoginTest" />
+
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="Запуск в хроме тест 4">
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+            <class name="tests.MainTest" />
+
+        </classes>
+    </test> <!-- Test -->
+
+
+    <test name="Запуск в хроме тест 5">
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+            <class name="tests.SettingsTest" />
+
+        </classes>
+    </test> <!-- Test -->
+
+
+    <test name="Запуск в хроме тест 6">
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+            <class name="tests.TextEditorTest" />
+
+        </classes>
+    </test> <!-- Test -->
 
 
 
-
-    <test name="Запуск в edge">
+    <test name="Запуск в edge тест 1">
     <parameter name="browser" value="edge"/>
 
     <classes>
@@ -26,6 +72,26 @@
 
     </classes>
 </test> <!-- Test -->
+
+
+    <test name="Запуск в edge тест 2">
+        <parameter name="browser" value="edge"/>
+
+        <classes>
+            <class name="tests.TextEditorTest" />
+
+        </classes>
+    </test> <!-- Test -->
+
+
+    <test name="Запуск в edge тест 3">
+        <parameter name="browser" value="edge"/>
+
+        <classes>
+            <class name="tests.MainTest" />
+
+        </classes>
+    </test> <!-- Test -->
 
 
 

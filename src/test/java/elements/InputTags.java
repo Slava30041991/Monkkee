@@ -8,14 +8,24 @@ import lombok.extern.log4j.Log4j2;
 
 public class InputTags {
     WebDriver driver;
+    String label;
+
+    public InputTags (WebDriver driver, String label) {
+        this.driver = driver;
+        this.label = label;
+    }
     public static By TAGS_INPUT = By.id("new-tag");
     public static By TAGS_INPUT_BUTTON = By.id("assign-new-tag");
     public static By MESSAGE_TAGS = By.xpath("//a[@class = 'tag pointer ng-binding']");
     String textTag = "//td[normalize-space(text()) ='%s']/..//i[@class = 'icon-trash icon-white']/..";
 
 
+
     public void searchTags(String text){
+
+
         driver.findElement(TAGS_INPUT).sendKeys(text);
+
         log.info("Search for a tag by text " + text);
         driver.findElement(TAGS_INPUT_BUTTON).click();
         log.info("Click button tags");
