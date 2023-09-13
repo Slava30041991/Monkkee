@@ -1,13 +1,13 @@
 package tests;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertEquals;
 @Log4j2
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseTest {
 
-    @Test(description = "User login and password  valid data")
+    @Test(description = "Enter login and password  valid data")
     public void inputValidDateUserAndPassword () {
         loginPage.open()
                  .enterLoginAndPassword(email, password)
@@ -15,8 +15,9 @@ public class LoginTest extends BaseTest{
 
         Assert.assertTrue(mainPage.isPageOpen(),"Text does not match");
     }
-    @Test(description = "User left the fields blank")
-    public void noValideDateUserLeftFieldsBlank (){
+
+    @Test(description = "Left the fields blank")
+    public void noValidDateUserLeftFieldsBlank (){
         loginPage.open()
                  .enterLoginAndPassword("","")
                  .userClickButton();
@@ -24,24 +25,26 @@ public class LoginTest extends BaseTest{
         assertEquals(loginPage.errorMessageField(), "Mandatory field","Text does not match");
 
     }
-    @Test(description = "User left field name empty")
-    public void noValideDateUserEnteredOnlyPassword () {
+    @Test(description = "Left field name empty")
+    public void noValidDateUserEnteredOnlyPassword () {
         loginPage.open()
                  .enterLoginAndPassword("", "Valy27061")
                  .userClickButton();
 
         assertEquals(loginPage.errorMessageField(), "Mandatory field","Text does not match");
+
     }
-    @Test(description = "User left field password empty")
-    public void noValideDateUserEnteredOnlyName () {
+    @Test(description = "Left field password empty")
+    public void noValidDateUserEnteredOnlyName () {
         loginPage.open()
                  .enterLoginAndPassword("balahenka30041991@gmail.com", "")
                  .userClickButton();
 
         assertEquals(loginPage.errorMessageField(), "Mandatory field","Text does not match");
+
     }
-    @Test(description = "User made a mistake in the name field")
-    public void noValideDateUserEnteredNameWithError (){
+    @Test(description = "Made a mistake in the name field")
+    public void noValidDateUserEnteredNameWithError (){
         loginPage.open()
                  .enterLoginAndPassword("balahenka30041991@gmail.",password)
                  .userClickButton();
@@ -49,12 +52,13 @@ public class LoginTest extends BaseTest{
         assertEquals(loginPage.errorMessageLogin(), "Login failed","Text does not match");
     }
 
-    @Test(description = "User made a mistake in the password field")
-    public void noValideDateUserEnteredPasswordWithError(){
+    @Test(description = "Made a mistake in the password field")
+    public void noValidDateUserEnteredPasswordWithError(){
         loginPage.open()
                  .enterLoginAndPassword(email,"Valy2706331")
                  .userClickButton();
 
         assertEquals(loginPage.errorMessageLogin(), "Login failed","Text does not match");
+
         }
 }

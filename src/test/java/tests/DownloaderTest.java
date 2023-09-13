@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 
-public class DownloaderTest extends BaseTest{
+public class DownloaderTest extends BaseTest {
     String fileLocator = "";
 
     @Test(description = "Download document")

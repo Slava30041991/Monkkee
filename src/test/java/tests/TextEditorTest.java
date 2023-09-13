@@ -1,7 +1,8 @@
 package tests;
-
 import org.testng.annotations.Test;
-public class TextEditorTest extends BaseTest{
+
+import static org.testng.Assert.assertTrue;
+public class TextEditorTest extends BaseTest {
 
     @Test(description = "Loading File ")
     public void loadingFileFormat() throws InterruptedException {
@@ -13,5 +14,6 @@ public class TextEditorTest extends BaseTest{
                 .selectFileLoading()
                 .clickButtonSave();
 
+        assertTrue(homePage.isPageOpen());
 
 }}

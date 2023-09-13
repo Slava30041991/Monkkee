@@ -1,14 +1,15 @@
 package page;
 import io.qameta.allure.Step;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import lombok.extern.log4j.Log4j2;
+@Log4j2
 public class LanguagePage extends BasePage{
 
-
-    @Step("The user selects and changes the language")
+    @Step("Choose language page")
     public LanguagePage languageSelection(String language){
         driver.findElement(By.xpath(String.format(languageLocator, language))).click();
+        log.info("Choose language page " + language);
         return this;
     }
     @Step("Language change message")

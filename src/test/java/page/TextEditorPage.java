@@ -1,16 +1,11 @@
 package page;
-
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.File;
 import java.util.List;
-
 @Log4j2
 
 public class TextEditorPage extends BasePage {
@@ -23,15 +18,15 @@ public class TextEditorPage extends BasePage {
 
     @Step("Enter text")
     public TextEditorPage enterText(String text) {
-        log.info("Enter " + text);
         driver.findElement(REDACTOR).sendKeys(text);
+        log.info("Enter text" + text);
         return this;
 
     }
     @Step("Click button save")
     public void clickButtonSave (){
         driver.findElement(BUTTON_SAVE).click();
-        log.info("Click" + BUTTON_SAVE);
+        log.info("Click button save");
     }
 
     @Step("Click button emage")
@@ -41,7 +36,7 @@ public class TextEditorPage extends BasePage {
         log.info("Select button block");
         return this;
     }
-    @Step("Select file loading  ")
+    @Step("Select file loading ")
     public TextEditorPage selectFileLoading () throws InterruptedException {
         Thread.sleep(600);
         WebElement element = driver.findElement(By.xpath("//iframe[@title = 'Upload']"));
@@ -50,20 +45,18 @@ public class TextEditorPage extends BasePage {
         driver.findElement(SELECT_FILE_BUTTON).sendKeys(file.getAbsolutePath());
         log.info("Uploading a picture");
         driver.switchTo().defaultContent();
-        Thread.sleep(600);
         List<WebElement> elements = driver.findElements(UPLOAD_BUTTON_OK);
         elements.get(0).click();
         log.info("Click button ok");
         return this;
     }
 
-
     public TextEditorPage(WebDriver driver) {
         super(driver);
     }
+
     @Override
     public boolean isPageOpen() {
         return isExist(PAGE_LOCATOR);
     }
-
 }

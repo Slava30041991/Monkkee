@@ -1,6 +1,7 @@
 package tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,8 +10,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.opera.OperaOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import page.*;
@@ -20,7 +19,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
-
+@Log4j2
+@Listeners(TestListener.class)
 public class BaseTest {
     String email, password;
     WebDriver driver;
@@ -34,8 +34,6 @@ public class BaseTest {
     LanguagePage languagePage;
     String patchToDownload = System.getProperty("user dir") + "src/test/downloads";
     String downLoadNameFile;
-
-
 
     @Parameters({"browser"})
     @BeforeMethod
@@ -56,10 +54,6 @@ public class BaseTest {
             options.setExperimentalOption("prefs", chromePrefs);
 
 
-//            HashMap<String, Object> chromePrefs = new HashMap<>();
-//            chromePrefs.put("profile.default_content_settings.popups", 0);
-//            chromePrefs.put("download.default_directory", patchToDownload);
-//            options.setExperimentalOption("prefs", chromePrefs);
 
             options.addArguments("--start-maximized");
             driver = new ChromeDriver(options);
@@ -99,6 +93,8 @@ public class BaseTest {
             public void tearDown() {
                 driver.quit();
             }
+
+
     public void downloader (String fileLocator, String nameDownloadedFile) throws IOException, InterruptedException {
         WebElement ourFile = driver.findElement(By.xpath(fileLocator));
         FileUtils.cleanDirectory(new File(downLoadNameFile));
