@@ -8,7 +8,7 @@ import static org.testng.Assert.assertTrue;
 public class HomeTest extends BaseTest {
 
     @Test(description = "Open website")
-    public void userOpensWebsite() {
+    public void opensWebsite() {
         homePage.open()
                 .isPageOpen();
 
