@@ -29,6 +29,7 @@
         public LoginPage languagePageLogin () {
             List<WebElement> language = driver.findElements(LOGIN_LANGUAGE);
             language.get(1).click();
+            log.info("Login language " + LOGIN_LANGUAGE);
             return this;
         }
 
@@ -39,7 +40,6 @@
 
         @Step("Second error message")
         public String errorMessageLogin() {
-            log.info("Second error message");
             return driver.findElement(ERROR_LOGIN).getText();
         }
 

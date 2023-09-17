@@ -7,8 +7,8 @@ public class MainTest extends BaseTest {
     String enteredText = "How to handle Alerts in chrome 64 using selenium Java";
     String homeTextNotebook = "How to handle Alerts in chrome 64 using selenium Java";
     String monthYear = "September 2023";
-    String day = "13";
-    String messageCalendar = "13 Sep. 2023";
+    String day = "15";
+    String messageCalendar = "15 Sep. 2023";
     String textTags = "How to handle Alerts in chrome 64 using selenium Java";
 
 

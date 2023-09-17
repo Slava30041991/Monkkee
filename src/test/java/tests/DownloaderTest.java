@@ -17,8 +17,8 @@ public class DownloaderTest extends BaseTest {
         settingsPage.clickSettingButton();
         settingsPage.selectSettingExport();
         downloaderPage.selectFileDownload();
-        downloaderPage.clickDownloadOk();
-        downloader("//div[@class = 'col-sm-4 col-sm-offset-3']/ancestor::div[@class = 'content-container clearfix ng-scope']//button","r");
+
+        downloader("//button[@class='btn btn-default']","monkkee-20230915204824");
 
 
     }

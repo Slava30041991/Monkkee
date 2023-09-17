@@ -8,11 +8,11 @@ import static org.testng.Assert.assertTrue;
 public class HomeTest extends BaseTest {
 
     @Test(description = "Open website")
-    public void opensWebsite() {
-        homePage.open()
+    public void opensWebSite() {
+        boolean pageOpen = homePage.open()
                 .isPageOpen();
 
-        assertTrue(homePage.isPageOpen());
+        assertTrue(pageOpen);
     }
 
     @Test(description = "Click button registration")

@@ -1,10 +1,9 @@
-package tests;
+package utils;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import utils.AllureUtils;
 @Log4j2
 public class TestListener implements ITestListener {
     @Override
@@ -14,7 +13,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        log.info("est success: %s \n " + result.getName());
+        log.info("est success:  \n " + result.getName());
     }
 
     @Override
