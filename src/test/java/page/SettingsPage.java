@@ -2,6 +2,7 @@ package page;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.List;
@@ -16,7 +17,6 @@ public class SettingsPage extends BasePage {
     public static By BUTTON_OK = By.xpath("//div[@class = 'col-sm-4 col-sm-offset-3']/ancestor::div[@class = 'content-container clearfix ng-scope']//button");
     public static By TEXT_LANGUAGE = By.xpath("//div[@class = 'alert alert-success' and text()]");
     public static By NICKNAME_BUTTON = By.xpath("//input[@id = 'use-alias']/..");
-    public static By NICKNAME_INPUT = By.xpath("//input[@id = 'alias']/..");
     public static By NICKNAME_SELECT = By.xpath("//div//input[@id = 'alias']");
     public static By LIMIT_TIME_LIST = By.xpath("//option[@value]/ancestor::select[@name = 'autoLogout']/..//option[@value]");
     public static By LIMIT_TIME_BUTTON = By.xpath("//select[@name = 'autoLogout']");
@@ -68,12 +68,6 @@ public class SettingsPage extends BasePage {
             return this;
         }
 
-        @Step("Select and click button Export")
-        public void selectSettingExport () {
-        List<WebElement> file = driver.findElements(LIST_SETTINGS);
-        log.info("Select and click button Export");
-        file.get(6).click();
-        }
 
         @Step("Click button OK language")
         public void clickButtonOkLanguage () {
@@ -81,11 +75,6 @@ public class SettingsPage extends BasePage {
             log.info("Click button OK language");
         }
 
-        @Step("Click button OK export")
-         public void clickButtonOkExport () {
-        driver.findElement(BUTTON_OK).click();
-        log.info("Click button OK export");
-        }
 
         @Step("Text message language")
         public String textMessageLanguage (String text){
@@ -101,12 +90,6 @@ public class SettingsPage extends BasePage {
             return this;
         }
 
-        @Step("Click on field nickname")
-        public SettingsPage clickNickname(){
-            driver.findElement(NICKNAME_INPUT).click();
-            log.info("Click on field nickname");
-            return this;
-        }
 
         @Step("Select nickname")
         public String selectNickName(String text) {
@@ -114,6 +97,14 @@ public class SettingsPage extends BasePage {
             log.info("Select nickname " + text);
             return text;
         }
+
+    @Step("Delete nickname")
+    public SettingsPage deleteNickName() {
+        driver.findElement(NICKNAME_SELECT).clear();
+        log.info("Delete nickname");
+        return this;
+
+    }
 
         @Step("Click button time")
         public SettingsPage clickButtonTime(){

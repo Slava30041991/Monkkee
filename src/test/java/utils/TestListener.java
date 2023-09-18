@@ -1,4 +1,4 @@
-package tests;
+package utils;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;

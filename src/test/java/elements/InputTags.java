@@ -20,7 +20,6 @@ public class InputTags {
     String textTag = "//td[normalize-space(text()) ='%s']/..//i[@class = 'icon-trash icon-white']/..";
 
 
-
     public void searchTags(String text){
 
 

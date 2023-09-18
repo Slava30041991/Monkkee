@@ -2,10 +2,7 @@ package tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -14,8 +11,8 @@ import org.testng.ITestContext;
 import org.testng.annotations.*;
 import page.*;
 import utils.PropertyReader;
-import java.io.File;
-import java.io.IOException;
+import utils.TestListener;
+
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
@@ -30,7 +27,7 @@ public class BaseTest {
     TextEditorPage textEditorPage;
     ContextMenuPage contextMenuPage;
     SettingsPage settingsPage;
-    DownloaderPage downloaderPage;
+
     LanguagePage languagePage;
     String patchToDownload = System.getProperty("user dir") + "src/test/downloads";
     String downLoadNameFile;
@@ -56,7 +53,7 @@ public class BaseTest {
 
 
             options.addArguments("--start-maximized");
-            //options.addArguments("--headless");
+            options.addArguments("--headless");
             driver = new ChromeDriver(options);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -70,12 +67,6 @@ public class BaseTest {
             driver.manage().window().maximize();
 
     }
-
-
-
-
-
-
         email = System.getenv().getOrDefault("MONKKEE_EMAIL", PropertyReader.getProperty("monkkee.email"));
         password = System.getenv().getOrDefault("MONKKEE_PASSWORD", PropertyReader.getProperty("monkkee.password"));
 
@@ -85,7 +76,6 @@ public class BaseTest {
         textEditorPage = new TextEditorPage(driver);
         contextMenuPage = new ContextMenuPage(driver);
         settingsPage = new SettingsPage(driver);
-        downloaderPage = new DownloaderPage(driver);
         languagePage = new LanguagePage(driver);
     }
 
@@ -96,12 +86,6 @@ public class BaseTest {
             }
 
 
-    public void downloader (String fileLocator, String nameDownloadedFile) throws IOException, InterruptedException {
-        WebElement ourFile = driver.findElement(By.xpath(fileLocator));
-        FileUtils.cleanDirectory(new File(downLoadNameFile));
-        File folder = new File(downLoadNameFile);
-        File[] listOfFiles = folder.listFiles();
 
-        ourFile.click();
-   }}
+   }
 

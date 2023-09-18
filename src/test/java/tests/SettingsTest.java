@@ -37,13 +37,17 @@ public class SettingsTest extends BaseTest {
                         .userClickButton();
            settingsPage.clickSettingButton()
                         .selectSettingAlies()
-                        .nicknameClickCheckBox()
-                        .clickNickname()
                         .nicknameClickCheckBox();
-           settingsPage.selectNickName("Home");
-           settingsPage.clickButtonOkTime();
+           settingsPage.selectNickName("Hotel");
+                        settingsPage.clickButtonOkTime();
 
         assertEquals(settingsPage.getMessageTextAliasAndTime("Your settings have been saved successfully"),textTimeAndAlies,"Text does not match");
+
+            settingsPage.deleteNickName();
+            settingsPage.nicknameClickCheckBox();
+            settingsPage.clickButtonOkTime();
+
+
 
         }
 
