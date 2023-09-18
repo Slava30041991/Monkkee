@@ -31,7 +31,7 @@ public class SettingsTest extends BaseTest {
     }
 
         @Test(description = "Adding a login alias instead of email")
-                public void addingAlies()  {
+                public void addingAlies() throws InterruptedException {
             loginPage.open()
                         .enterLoginAndPassword(email, password)
                         .userClickButton();

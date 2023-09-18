@@ -3,11 +3,14 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 @Log4j2
 public class LanguagePage extends BasePage{
 
     @Step("Choose language page")
     public LanguagePage languageSelection(String language){
+        wait =new WebDriverWait(driver,30);
         driver.findElement(By.xpath(String.format(languageLocator, language))).click();
         log.info("Choose language page " + language);
         return this;

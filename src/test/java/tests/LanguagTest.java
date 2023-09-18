@@ -14,6 +14,8 @@ public class LanguagTest extends BaseTest {
                 languagePage.languageSelection("DE");
 
         assertEquals(languagePage.languageMessage(),textDe,"Text does not match");
+
+        languagePage.languageSelection("EN");
     }
 
     @Test(description = "Page language fr selection")
@@ -22,6 +24,8 @@ public class LanguagTest extends BaseTest {
                 languagePage.languageSelection("FR");
 
         assertEquals(languagePage.languageMessage(),textFr,"Text does not match");
+
+        languagePage.languageSelection("EN");
     }
 
     @Test(description = "Page language pt selection")
@@ -30,14 +34,21 @@ public class LanguagTest extends BaseTest {
         languagePage.languageSelection("PT");
 
         assertEquals(languagePage.languageMessage(),textPt,"Text does not match");
+
+        languagePage.languageSelection("EN");
     }
 
     @Test(description = "Page language en selection")
     public void changeLanguageEn () {
         loginPage.open();
-        languagePage.languageSelection("PT")
-                    .languageSelection("EN");
+        languagePage.languageSelection("FR")
+                .languageSelection("EN");
 
-        assertEquals(languagePage.languageMessage(),textEn,"Text does not match");
+        assertEquals(languagePage.languageMessage(), textEn, "Text does not match");
+
+        languagePage.languageSelection("PT");
+
+
+
 }
 }

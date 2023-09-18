@@ -46,7 +46,8 @@ public class SettingsPage extends BasePage {
         }
 
         @Step("Click setting alies")
-        public SettingsPage selectSettingAlies () {
+        public SettingsPage selectSettingAlies () throws InterruptedException {
+            Thread.sleep(900);
             List<WebElement> settings = driver.findElements(LIST_SETTINGS);
             log.info("Click setting alies");
             settings.get(3).click();

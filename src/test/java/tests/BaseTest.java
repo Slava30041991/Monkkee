@@ -12,8 +12,6 @@ import org.testng.annotations.*;
 import page.*;
 import utils.PropertyReader;
 import utils.TestListener;
-
-import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 @Log4j2
@@ -29,8 +27,6 @@ public class BaseTest {
     SettingsPage settingsPage;
 
     LanguagePage languagePage;
-    String patchToDownload = System.getProperty("user dir") + "src/test/downloads";
-    String downLoadNameFile;
 
     @Parameters({"browser"})
     @BeforeMethod
@@ -42,18 +38,8 @@ public class BaseTest {
 
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
-
-            HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-            chromePrefs.put("profile.default_content_settings.popups", 0);
-            chromePrefs.put("download.prompt_for_download", "false");
-            chromePrefs.put("download.default_directory", patchToDownload);
-
-            options.setExperimentalOption("prefs", chromePrefs);
-
-
-
             options.addArguments("--start-maximized");
-            options.addArguments("--headless");
+            //options.addArguments("--headless");
             driver = new ChromeDriver(options);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -84,8 +70,6 @@ public class BaseTest {
             public void tearDown() {
                 driver.quit();
             }
-
-
 
    }
 

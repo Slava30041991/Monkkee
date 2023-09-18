@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Regression Test" parallel="tests" thread-count="3">
+<suite name="Regression Test" parallel="tests" thread-count="2">
 
 
     <test name="Запуск в хроме тест 1">
@@ -9,10 +9,8 @@
         <classes>
             <class name="tests.LoginTest" />
             <class name="tests.HomeTest" />
-            <class name="tests.LanguagTest" />
-            <class name="tests.SettingsTest" />
-            <class name="tests.TextEditorTest" />
             <class name="tests.MainTest" />
+
 
         </classes>
     </test> <!-- Test -->
@@ -22,9 +20,9 @@
         <parameter name="browser" value="chrome"/>
 
         <classes>
+            <class name="tests.SettingsTest" />
+            <class name="tests.TextEditorTest" />
             <class name="tests.LanguagTest" />
-            <class name="tests.MainTest" />
-
         </classes>
     </test> <!-- Test -->
 
