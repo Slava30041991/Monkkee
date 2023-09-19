@@ -1,6 +1,8 @@
 package tests;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 import static org.testng.Assert.*;
 public class SettingsTest extends BaseTest {
     String textLanguage = "Seu idioma foi alterado com sucesso";
@@ -20,18 +22,18 @@ public class SettingsTest extends BaseTest {
 
     }
 
-    @Test(description = "logout")
-    public void logout () {
-        loginPage.open()
+            @Test(description = "logout")
+            public void logout () {
+             loginPage.open()
                 .enterLoginAndPassword(email, password)
                 .userClickButton();
-        settingsPage.logout();
+             settingsPage.logout();
 
-        assertTrue(homePage.isPageOpen());
+             assertTrue(homePage.isPageOpen());
     }
 
-        @Test(description = "Adding a login alias instead of email")
-                public void addingAlies() throws InterruptedException {
+            @Test(description = "Adding a login alias instead of email")
+                public void addingAlies() throws InterruptedException, IOException {
             loginPage.open()
                         .enterLoginAndPassword(email, password)
                         .userClickButton();
@@ -41,18 +43,16 @@ public class SettingsTest extends BaseTest {
            settingsPage.selectNickName("Hotel");
                         settingsPage.clickButtonOkTime();
 
-        assertEquals(settingsPage.getMessageTextAliasAndTime("Your settings have been saved successfully"),textTimeAndAlies,"Text does not match");
+            assertEquals(settingsPage.getMessageTextAliasAndTime("Your settings have been saved successfully"),textTimeAndAlies,"Text does not match");
 
             settingsPage.deleteNickName();
             settingsPage.nicknameClickCheckBox();
             settingsPage.clickButtonOkTime();
 
-
-
         }
 
-        @Test(description = "Change page time")
-                public void changePageTime(){
+            @Test(description = "Change page time")
+                public void changePageTime() throws InterruptedException {
             loginPage.open()
                         .enterLoginAndPassword(email, password)
                         .userClickButton();

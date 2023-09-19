@@ -1,48 +1,33 @@
 package utils;
+
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
-import org.testng.ITestResult;
-import utils.AllureUtils;
+
 @Log4j2
 public class TestListener implements ITestListener {
-    @Override
-    public void onTestStart(ITestResult result) {
-        log.info(">>>>>>>>>>>>>>>>>>>TEST START: " +result.getName() + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" );
+    public void onTestStart(org.testng.ITestResult result) {
+        log.info(">>>>>>>>>>>>>>>TEST START: "+ result.getName() +">>>>>>>>>>>>>>>");
     }
-
-    @Override
-    public void onTestSuccess(ITestResult result) {
-        log.info("est success: %s \n " + result.getName());
+    public void onTestSuccess(org.testng.ITestResult result) {
+        log.info(">>>>>>>>>>>>>>>TEST SUCCESS: " + result.getName() + ">>>>>>>>>>>>>>>" );
     }
-
-    @Override
-    public void onTestFailure(ITestResult result) {
-        WebDriver driver = (WebDriver)result.getTestContext().getAttribute("driver");
-        AllureUtils.takeScreenShot(driver);
-        log.info("TEST FAIL: " +result.getName());
+    public void onTestFailure(org.testng.ITestResult result) {
+        WebDriver driver = (WebDriver) result.getTestContext().getAttribute("driver");
+        ((TakesScreenshot) driver).getScreenshotAs((OutputType.BYTES));
+        log.info(">>>>>>>>>>>>>>>TEST FAILURE: " + result.getName() + ">>>>>>>>>>>>>>>" );
     }
-
-    @Override
-
-    public void onTestSkipped(ITestResult result) {
-        log.info("Test skipped: %s \n " + result.getName() );
+    public void onTestSkipped(org.testng.ITestResult result) {
+        log.info(">>>>>>>>>>>>>>>TEST SKIPPED: " + result.getName() + ">>>>>>>>>>>>>>>" );
     }
-
-    @Override
-    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-       log.info("Test Failed But Within Success Percentage: %s \n"  + result.getName());
-
-    }
-
-    @Override
     public void onStart(ITestContext iTestContext) {
-
+        log.info(">>>>>>>>>>>>>>>TEST START: " + iTestContext.getName() + ">>>>>>>>>>>>>>>" );
     }
-
-    @Override
     public void onFinish(ITestContext iTestContext) {
-
+        log.info(">>>>>>>>>>>>>>>TEST FINISH >>>>>>>>>>>>>>>" );
     }
+
 }

@@ -1,18 +1,15 @@
 package page;
-
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.List;
-
 import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class SettingsPage extends BasePage {
     public static By BUTTON_SETTINGS = By.xpath("//button[@class = 'user-menu__btn']/ancestor::span[@class = 'ng-scope']//i[@class = 'icon-cog icon-light']");
     public static By LOGOUT_BUTTON = By.xpath("//button[@class = 'user-menu__btn']");
-    public static By LIST_SETTINGS = By.xpath("//div[@id = 'settings-menu']//li");
+    public static By LIST_SETTINGS = By.xpath("//i[@class = 'icon-chevron-right']/ancestor::div[@id = 'settings-menu']//i");
     public static By LIST_LANGUAGE = By.xpath("//option[@value]/ancestor::div[@class = 'col-sm-4']//option");
     public static By BUTTON_OK = By.xpath("//div[@class = 'col-sm-4 col-sm-offset-3']/ancestor::div[@class = 'content-container clearfix ng-scope']//button");
     public static By TEXT_LANGUAGE = By.xpath("//div[@class = 'alert alert-success' and text()]");
@@ -31,7 +28,8 @@ public class SettingsPage extends BasePage {
         }
 
         @Step("Click button setting")
-        public SettingsPage clickSettingButton(){
+        public SettingsPage clickSettingButton() throws InterruptedException {
+            Thread.sleep(1200);
              driver.findElement(BUTTON_SETTINGS).click();
              log.info("Click button setting");
             return this;
@@ -39,7 +37,7 @@ public class SettingsPage extends BasePage {
 
         @Step("Click setting language")
         public void selectSettingLanguage () throws InterruptedException {
-            Thread.sleep(600);
+            Thread.sleep(1200);
             List<WebElement> settings = driver.findElements(LIST_SETTINGS);
             log.info("Click setting language");
             settings.get(0).click();
@@ -47,7 +45,7 @@ public class SettingsPage extends BasePage {
 
         @Step("Click setting alies")
         public SettingsPage selectSettingAlies () throws InterruptedException {
-            Thread.sleep(900);
+            Thread.sleep(1200);
             List<WebElement> settings = driver.findElements(LIST_SETTINGS);
             log.info("Click setting alies");
             settings.get(3).click();
@@ -55,7 +53,7 @@ public class SettingsPage extends BasePage {
         }
 
         @Step("Click setting timeout")
-        public void selectSettingTimeout () {
+        public void selectSettingTimeout ()  {
         List<WebElement> settings = driver.findElements(LIST_SETTINGS);
         log.info("Click setting timeout");
         settings.get(4).click();

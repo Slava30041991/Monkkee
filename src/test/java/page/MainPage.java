@@ -16,6 +16,8 @@ public class MainPage extends BasePage{
     public static final By TEXT_MESSAGE_ENTER_USER = By.id("back-to-overview");
     public static final By TEXT_BUTTON_TAGS = By.xpath("//a[text() = 'Manage tags']");
 
+
+
     @Step("Click button create entry")
     public MainPage clickCreateButton() throws InterruptedException {
         Thread.sleep(100);
@@ -41,7 +43,8 @@ public class MainPage extends BasePage{
         log.info("Select check box");
     }
     @Step("Search input")
-    public MainPage searchInput(String text){
+    public MainPage searchInput(String text) throws InterruptedException {
+        Thread.sleep(1200);
         new InputSearch(driver).searchInput(text);
         log.info("Search records by text " + text);
         return this;

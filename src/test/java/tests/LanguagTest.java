@@ -9,9 +9,9 @@ public class LanguagTest extends BaseTest {
     String textEn = "Language changed temporarily. To change your profile language permanently, go to the menu item \"Settings\" after login.";
 
     @Test(description = "Page language de selection")
-    public void changeLanguageDe () {
+    public void changeLanguageDe () throws InterruptedException {
         loginPage.open();
-                languagePage.languageSelection("DE");
+        languagePage.languageSelection("DE");
 
         assertEquals(languagePage.languageMessage(),textDe,"Text does not match");
 
@@ -19,9 +19,9 @@ public class LanguagTest extends BaseTest {
     }
 
     @Test(description = "Page language fr selection")
-    public void changeLanguageFr () {
+    public void changeLanguageFr () throws InterruptedException {
         loginPage.open();
-                languagePage.languageSelection("FR");
+        languagePage.languageSelection("FR");
 
         assertEquals(languagePage.languageMessage(),textFr,"Text does not match");
 
@@ -29,7 +29,7 @@ public class LanguagTest extends BaseTest {
     }
 
     @Test(description = "Page language pt selection")
-    public void changeLanguagePT () {
+    public void changeLanguagePT () throws InterruptedException {
         loginPage.open();
         languagePage.languageSelection("PT");
 
@@ -39,7 +39,7 @@ public class LanguagTest extends BaseTest {
     }
 
     @Test(description = "Page language en selection")
-    public void changeLanguageEn () {
+    public void changeLanguageEn () throws InterruptedException {
         loginPage.open();
         languagePage.languageSelection("FR")
                 .languageSelection("EN");

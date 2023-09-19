@@ -9,8 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class LanguagePage extends BasePage{
 
     @Step("Choose language page")
-    public LanguagePage languageSelection(String language){
-        wait =new WebDriverWait(driver,30);
+    public LanguagePage languageSelection(String language) throws InterruptedException {
+        Thread.sleep(1200);
         driver.findElement(By.xpath(String.format(languageLocator, language))).click();
         log.info("Choose language page " + language);
         return this;

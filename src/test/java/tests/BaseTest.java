@@ -12,8 +12,8 @@ import org.testng.annotations.*;
 import page.*;
 import utils.PropertyReader;
 import utils.TestListener;
-import java.util.concurrent.TimeUnit;
 
+import java.util.concurrent.TimeUnit;
 @Log4j2
 @Listeners(TestListener.class)
 public class BaseTest {
@@ -39,7 +39,7 @@ public class BaseTest {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
-            //options.addArguments("--headless");
+           // options.addArguments("--headless");
             driver = new ChromeDriver(options);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -71,5 +71,6 @@ public class BaseTest {
                 driver.quit();
             }
 
-   }
+        }
+
 

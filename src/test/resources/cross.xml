@@ -7,9 +7,9 @@
         <parameter name="browser" value="chrome"/>
 
         <classes>
-            <class name="tests.LoginTest" />
-            <class name="tests.HomeTest" />
 
+            <class name="tests.HomeTest" />
+            <class name="tests.LanguagTest" />
         </classes>
     </test> <!-- Test -->
 
@@ -18,8 +18,29 @@
         <parameter name="browser" value="edge"/>
 
         <classes>
-            <class name="tests.LanguagTest" />
             <class name="tests.MainTest" />
+            <class name="tests.LoginTest" />
+        </classes>
+
+    </test> <!-- Test -->
+
+    <test name="Запуск в хроме тест 2">
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+            <class name="tests.TextEditorTest" />
+            <class name="tests.SettingsTest" />
+
+        </classes>
+    </test> <!-- Test -->
+
+
+    <test name="Запуск в  edge тест ">
+        <parameter name="browser" value="edge"/>
+
+        <classes>
+            <class name="tests.TextEditorTest" />
+            <class name="tests.SettingsTest" />
 
         </classes>
     </test> <!-- Test -->
